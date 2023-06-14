@@ -1,0 +1,28 @@
+<insert id="insert" parameterType="${package.Entity}.${entity}">
+    INSERT INTO ${table.name}
+    #foreach($field in ${table.fields})
+        $field.name#if($foreach.hasNext),#end
+    #end
+    VALUES
+    #foreach($field in ${table.fields})
+        #{$field.propertyName}#if($foreach.hasNext),#end
+    #end
+</insert>
+
+<insert id="insertSelective" parameterType="${package.Entity}.${entity}">
+    INSERT INTO ${table.name}
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+        #foreach($field in ${table.fields})
+            <if test="$field.name != null">
+                $field.name#if($foreach.hasNext),#end
+            </if>
+        #end
+    </trim>
+    <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+        #foreach($field in ${table.fields})
+            <if test="$field.name != null">
+                #{$field.propertyName}#if($foreach.hasNext),#end
+            </if>
+        #end
+    </trim>
+</insert>
