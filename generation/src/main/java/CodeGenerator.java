@@ -62,7 +62,7 @@ public class CodeGenerator {
 //			"contract_info",
 //			"chain_account",
 //			"chain_asset",
-			"chain_statistics",
+			"net_conf",
 	};
 
 
@@ -234,9 +234,11 @@ public class CodeGenerator {
 //		String templatePath = "/templates/mapper.xml.ftl";
 		// 如果模板引擎是 velocity
 		String templatePath = "/templates/mapper.xml.vm";
+		//使用自定义的模版生成代码
+//		String templatePath = "/myTemplates/myTemplates.vm";
 
 		//指定文件输出位置
-		focList.add(new FileOutConfig("/myTemplates/myTemplates.vm") {
+		focList.add(new FileOutConfig(templatePath) {
 			@Override
 			public String outputFile(TableInfo tableInfo) {
 				// 自定义输出文件名 ， 如果你 Entity 设置了前后缀、此处注意 xml 的名称会跟着发生变化！！
