@@ -25,11 +25,11 @@ public class CodeGenerator {
 	 */
 
 	//数据库url
-	public static String url = "jdbc:mysql://  10.168.3.20:3306  / chain_browser ?useUnicode=true&useSSL=false" +
+	public static String url = "jdbc:mysql://  10.168.3.20:3306  / chain_browser1 ?useUnicode=true&useSSL=false" +
 			"&characterEncoding=utf8";
 
 	//数据库名称(为空则不指定)
-	public static String schemaName = "chain_browser";
+	public static String schemaName = "chain_browser1";
 
 	public static String userName = "root";
 
@@ -61,8 +61,8 @@ public class CodeGenerator {
 //			"block_sealer_node",
 //			"contract_info",
 //			"chain_account",
-//			"chain_asset",
-			"net_conf",
+//			"tx_trans_history",
+			"tx_trans_record",
 	};
 
 
@@ -233,9 +233,9 @@ public class CodeGenerator {
 		// 如果模板引擎是 freemarker
 //		String templatePath = "/templates/mapper.xml.ftl";
 		// 如果模板引擎是 velocity
-		String templatePath = "/templates/mapper.xml.vm";
+//		String templatePath = "/templates/mapper.xml.vm";
 		//使用自定义的模版生成代码
-//		String templatePath = "/myTemplates/myTemplates.vm";
+		String templatePath = "/myTemplates/myTemplates.vm";
 
 		//指定文件输出位置
 		focList.add(new FileOutConfig(templatePath) {
